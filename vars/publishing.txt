@@ -1,0 +1,3 @@
+PublishToNexus function is publishing an artifacts archieve to nexus
+
+PushToDocker function is pushing docker build to private registry
