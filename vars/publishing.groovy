@@ -9,8 +9,8 @@ def PushToDocker(String buildNumber, String nexusCredentialsId, String registryU
     //docker.withServer('helloworld-akarpyza') {
         docker.withTool(dockerToolName){
 	        docker.withRegistry(registryUrl, nexusCredentialsId) {
-	            	dockerImage = docker.build("helloworld-akarpyza:${buildNumber}", "./")
-	            dockerImage.push(tag)
+	            	dockerImage = docker.build("helloworld-akarpyza", "./")
+	            dockerImage.push(buildNumber)
 	        }
 	    }
     //} 
