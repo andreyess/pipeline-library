@@ -6,14 +6,14 @@ def PushToDocker(String buildNumber, String nexusCredentialsId, String registryU
         sh "docker tag check_image-${buildNumber} docker.akarpyza.lab.playpit.by/helloworld-akarpyza:${buildNumber}"
         sh "docker push docker.akarpyza.lab.playpit.by/helloworld-akarpyza:${buildNumber}"
     }*/
-    docker.withServer('helloworld-akarpyza') {
+    //docker.withServer('helloworld-akarpyza') {
         docker.withTool(dockerToolName){
 	        docker.withRegistry(registryUrl, nexusCredentialsId) {
 	            	dockerImage = docker.build("helloworld-akarpyza:${buildNumber}", "./")
 	            dockerImage.push(tag)
 	        }
 	    }
-    } 
+    //} 
 }
 
 
